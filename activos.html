@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLICITUDES</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icon.png">
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <a href="index.html" class="enlace">
+            <img src="icon.png" alt="" class="logo">
+        </a>
+        <ul>
+            <li><a class="active" href="./activos.html">Solicitud de activos</a></li>
+            <li><a class="active"href="./moper.html">Moper</a></li>
+            <li><a class="active"href="./compras.html">Compras</a></li>
+        </ul>
+    </nav>
+ <section>   
+    </section>      
+        <h1>Solicitud de activos</h1>
+        <div class="container">
+            <div class="col s12 m4 l8">
+                <form id="transactionForm">
+        <div class="input-field"><label for="Concepto">Concepto</label><input  required type="text" class="validate" id="Concepto" name="Concepto"></div>
+        <div class="input-field"><label for="Unidad">Unidad</label> <input  required type="text" class="validate" id="Unidad" name="Unidad"></div>
+        <div class="input-field"><label for="Cantidad">Cantidad</label><input required type="number" class="validate" id="Cantidad" type="number" name="Cantidad"></div>
+        <div class="select-field"><label for="Ubicacion">Ubicacion Actual</label> 
+            <select required class="browser-default" id="Ubicacion" name="Ubicacion">
+                <option value="API Puente roto">API puente roto</option>
+                <option value="Rosarito">Rosarito</option>
+                <option value="Ciudad de México">Ciudad de México</option>
+        </select>
+        </div>
+        <div class="date-field"><label for="Fecha">Fecha de requerimientos</label><input required type="date" class="validate" id="Fecha" name="Fecha"></div>
+        <div><button class="btn waves-effect waves-light" type="submit" id="boton" name="action">Solicitar
+            <i class="material-icons right">send</i>
+        </button></div>
+        
+    </div>
+</form>
+<br>
+<div class="col s12">
+    <h4>Historial de solicitudes</h4>
+    <br>
+    <div class="tableFormat"  style='overflow-x:auto'>
+        <table cellpadding=5 border=1 cellspacing=0 id="transactionTable">
+            <tr>
+                <th>Partida</th>
+                <th>Concepto</th>
+                <th>Unidad</th>
+                <th>Cantidad</th>
+                <th>Ubicación actual</th>
+                <th>Fecha de requerimientos</th>
+                <th>Estatus</th>
+                <th>Acciones</th>
+                <th>Eliminar</th>
+                
+            </tr>
+            
+        </table>
+    </div>
+        </div>
+    </div>
+    <script src="./scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+</body>
+
+</html>

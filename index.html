@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLICITUDES</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icon.png">
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <a href="index.html" class="enlace">
+            <img src="icon.png" alt="" class="logo">
+        </a>
+        <ul>
+            <li><a class="active" href="./activos.html">Solicitud de activos</a></li>
+            <li><a class="active"href="./moper.html">Moper</a></li>
+            <li><a class="active"href="./compras.html">Compras</a></li>
+        </ul>
+    </nav>
+    <section>   
+    </section>
+    <div class="container">
+        <div class="col s12 m4 l8">
+        <h4>Historial de solicitudes activos</h4>
+        <br>
+        <div class="tableFormat"  style='overflow-x:auto'>
+            <table cellpadding=5 border=1 cellspacing=0 id="transactionTable">
+                <tr>
+                    <th>Partida</th>
+                    <th>Concepto</th>
+                    <th>Unidad</th>
+                    <th>Cantidad</th>
+                    <th>Ubicación actual</th>
+                    <th>Fecha de requerimientos</th>
+                    <th>Estatus</th>
+                    
+                </tr>
+                
+            </table>
+        </div>
+        </div>
+     </div>
+        </div>
+ 
+
+    <div class="container">
+        <h4>Historial de solicitudes moper</h4>
+        <br>
+        <div class="col s12 m4 l8">   
+            <div class="tableFormat"  style='overflow-x:auto'>
+                <table cellpadding=5 border=1 cellspacing=0 id="transactionTable1">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Alta</th>
+                    <th>Fecha</th>
+                    <th>Departamento</th>
+                    <th>Obra o Proyecto</th>
+                    <th>Sindicalizado</th>
+                    <th>Cambios</th>
+                    <th>Estatus</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    </div>
+
+    <div class="container">
+        <h4>Historial de solicitudes compras</h4>
+        <br>
+        <div class="col s12 m4 l8">   
+            <div class="tableFormat"  style='overflow-x:auto'>
+                <table cellpadding=5 border=1 cellspacing=0 id="transactionTable2">
+                <tr>
+                    <th>Partida</th>
+                    <th>Descripcion</th>
+                    <th>Unidad</th>
+                    <th>Cantidad</th>
+                    <th>Existencia</th>
+                    <th>Precio Unitario</th>
+                    <th>Importe</th>
+                    <th>Fecha de requerimientos</th>
+                    <th>Estatus</th>  
+                </tr>
+                
+            </table>
+        </div>
+            </div>
+        </div>
+    <script src="./scriptsind.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</div>
+</div>
+</body>
+
+</html>
