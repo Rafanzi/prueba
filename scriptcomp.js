@@ -141,21 +141,23 @@ function insertar2(transactionObj2) {
 
 }
 function deniedTransactionObj2(transactionID2){
+    if (confirm("¿Desea rechazar la solicitud? Esta acción no se puede deshacer") == true) {
     let transactionObjArr2 = JSON.parse(localStorage.getItem("transactionData2"))
     // Busco el índice que quiero eliminar
     let transactionIndexInArray2 = transactionObjArr2.findIndex(element => element.transactionID2 == transactionID2)
     transactionObjArr2[transactionIndexInArray2].Estatus="Rechazado";
     let transactionArrayJSON2 = JSON.stringify(transactionObjArr2);
-    localStorage.setItem("transactionData2", transactionArrayJSON2);
+    localStorage.setItem("transactionData2", transactionArrayJSON2);}
 
 }
 function aproveTransactionObj2(transactionID2){
+    if (confirm("¿Desea aprobar la solicitud? Esta acción no se puede deshacer") == true) {
     let transactionObjArr2 = JSON.parse(localStorage.getItem("transactionData2"))
     // Busco el índice que quiero eliminar
     let transactionIndexInArray2= transactionObjArr2.findIndex(element => element.transactionID2 == transactionID2)
     transactionObjArr2[transactionIndexInArray2].Estatus="Aceptado";
     let transactionArrayJSON2 = JSON.stringify(transactionObjArr2);
-    localStorage.setItem("transactionData2", transactionArrayJSON2);
+    localStorage.setItem("transactionData2", transactionArrayJSON2);}
 
 }
 
