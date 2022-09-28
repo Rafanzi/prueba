@@ -116,16 +116,18 @@ function insertar(transactionObj) {
     
 
     deniedButton.addEventListener("click", (event) => {
+        if (confirm("¿Desea rechazar la solicitud? Esta acción no se puede deshacer") == true) {
         let transactionRow = event.target.parentNode.parentNode;
         let transactionID = transactionRow.getAttribute("data-transaction-id");
         location.reload("transactionTable");
-        deniedTransactionObj(transactionID);
+        deniedTransactionObj(transactionID);}
     })
     aproveButton.addEventListener("click", (event) => {
+                if (confirm("¿Desea aprobar la solicitud? Esta acción no se puede deshacer") == true) {
         let transactionRow = event.target.parentNode.parentNode;
         let transactionID = transactionRow.getAttribute("data-transaction-id");
         location.reload("transactionTable");
-        aproveTransactionObj(transactionID);
+        aproveTransactionObj(transactionID);}
     })
     deleteButton.addEventListener("click", (event) => {
         let transactionRow = event.target.parentNode.parentNode;
