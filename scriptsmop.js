@@ -134,7 +134,7 @@ function insertar1(transactionObj1) {
     deleteButton1.addEventListener("click", (event) => {
         let transactionRow1 = event.target.parentNode.parentNode;
         let transactionID1 = transactionRow1.getAttribute("data-transaction-id1");
-        transactionRow1.remove();
+        location.reload("transactionTable1")
         deleteTransactionObj1(transactionID1);
     })
 
@@ -161,6 +161,7 @@ function aproveTransactionObj1(transactionID1){
 }
     // Le paso el id que quiero eliminar
     function deleteTransactionObj1(transactionID1) {
+        if (confirm("¿Desea eliminar la solicitud? Esta acción no se puede deshacer") == true) {
         //Convierto de JSON a objeto
         let transactionObjArr1 = JSON.parse(localStorage.getItem("transactionData1"))
         // Busco el índice que quiero eliminar
@@ -168,6 +169,7 @@ function aproveTransactionObj1(transactionID1){
         transactionObjArr1.splice(transactionIndexInArray1, 1)
         let transactionArrayJSON1 = JSON.stringify(transactionObjArr1);
         localStorage.setItem("transactionData1", transactionArrayJSON1);
+        }
 }
 function saveTransactionObj1(transactionObj1) {
     let myTransactionArray1 = JSON.parse(localStorage.getItem("transactionData1")) || [];
