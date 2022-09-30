@@ -80,7 +80,7 @@ function insertar2(transactionObj2) {
     newCellRef2.textContent = transactionObj2["importe"];
     newCellRef2 = newTransactionTRow2.insertCell(7);
     newCellRef2.textContent = transactionObj2["fecha"];
-    let status2 = newTransactionTRow2.insertCell(7);
+    let status2 = newTransactionTRow2.insertCell(8);
     status2.textContent = transactionObj2["Estatus"];
     if (transactionObj2.Estatus==="Pendiente"){
         status2.style.backgroundColor="yellow"
@@ -135,7 +135,7 @@ function insertar2(transactionObj2) {
     deleteButton2.addEventListener("click", (event) => {
         let transactionRow2 = event.target.parentNode.parentNode;
         let transactionID2 = transactionRow2.getAttribute("data-transaction-id2");
-        transactionRow2.remove();
+        location.reload("transactionTable2");
         deleteTransactionObj2(transactionID2);
     })
 
@@ -163,6 +163,7 @@ function aproveTransactionObj2(transactionID2){
 
     // Le paso el id que quiero eliminar
     function deleteTransactionObj2(transactionID2) {
+        if (confirm("¿Desea eliminar la solicitud? Esta acción no se puede deshacer") == true) {
         //Convierto de JSON a objeto
         let transactionObjArr2 = JSON.parse(localStorage.getItem("transactionData2"))
         // Busco el índice que quiero eliminar
@@ -170,6 +171,7 @@ function aproveTransactionObj2(transactionID2){
         transactionObjArr2.splice(transactionIndexInArray2, 1)
         let transactionArrayJSON2 = JSON.stringify(transactionObjArr2);
         localStorage.setItem("transactionData2", transactionArrayJSON2);
+        }
 }
 function saveTransactionObj(transactionObj2) {
     let myTransactionArray2 = JSON.parse(localStorage.getItem("transactionData2")) || [];
