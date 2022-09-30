@@ -120,14 +120,14 @@ function insertar(transactionObj) {
         let transactionRow = event.target.parentNode.parentNode;
         let transactionID = transactionRow.getAttribute("data-transaction-id");
         location.reload("transactionTable");
-        deniedTransactionObj(transactionID);}
+        deniedTransactionObj(transactionID);
     })
     aproveButton.addEventListener("click", (event) => {
         event.preventDefault();
         let transactionRow = event.target.parentNode.parentNode;
         let transactionID = transactionRow.getAttribute("data-transaction-id");
         location.reload("transactionTable");
-        aproveTransactionObj(transactionID);}
+        aproveTransactionObj(transactionID);
     })
     deleteButton.addEventListener("click", (event) => {
         event.preventDefault();
@@ -139,10 +139,6 @@ function insertar(transactionObj) {
 
 
 
-
-
-}
-function changeColor(estatus){
 
 
 }
@@ -178,8 +174,7 @@ function aproveTransactionObj(transactionID){
         let transactionIndexInArray = transactionObjArr.findIndex(element => element.transactionID == transactionID)
         transactionObjArr.splice(transactionIndexInArray, 1)
         let transactionArrayJSON = JSON.stringify(transactionObjArr);
-        localStorage.setItem("transactionData", transactionArrayJSON);
-        }
+        localStorage.setItem("transactionData", transactionArrayJSON);}
 }
 
 function saveTransactionObj(transactionObj) {
@@ -188,4 +183,3 @@ function saveTransactionObj(transactionObj) {
     let transactionArrayJSON = JSON.stringify(myTransactionArray);
     localStorage.setItem("transactionData", transactionArrayJSON);
 }
-
