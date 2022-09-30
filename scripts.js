@@ -116,20 +116,21 @@ function insertar(transactionObj) {
     
 
     deniedButton.addEventListener("click", (event) => {
-        if (confirm("¿Desea rechazar la solicitud? Esta acción no se puede deshacer") == true) {
+        event.preventDefault();
         let transactionRow = event.target.parentNode.parentNode;
         let transactionID = transactionRow.getAttribute("data-transaction-id");
         location.reload("transactionTable");
         deniedTransactionObj(transactionID);}
     })
     aproveButton.addEventListener("click", (event) => {
-                if (confirm("¿Desea aprobar la solicitud? Esta acción no se puede deshacer") == true) {
+        event.preventDefault();
         let transactionRow = event.target.parentNode.parentNode;
         let transactionID = transactionRow.getAttribute("data-transaction-id");
         location.reload("transactionTable");
         aproveTransactionObj(transactionID);}
     })
     deleteButton.addEventListener("click", (event) => {
+        event.preventDefault();
         let transactionRow = event.target.parentNode.parentNode;
         let transactionID = transactionRow.getAttribute("data-transaction-id");
         location.reload("transactionTable");
@@ -147,21 +148,25 @@ function changeColor(estatus){
 }
 
 function deniedTransactionObj(transactionID){
+    if (confirm("¿Desea rechazar la solicitud? Esta acción no se puede deshacer") == true) {
     let transactionObjArr = JSON.parse(localStorage.getItem("transactionData"))
     // Busco el índice que quiero eliminar
     let transactionIndexInArray = transactionObjArr.findIndex(element => element.transactionID == transactionID)
     transactionObjArr[transactionIndexInArray].Estatus="Rechazado";
     let transactionArrayJSON = JSON.stringify(transactionObjArr);
     localStorage.setItem("transactionData", transactionArrayJSON);
+    }
 
 }
 function aproveTransactionObj(transactionID){
+    if (confirm("¿Desea aprobar la solicitud? Esta acción no se puede deshacer") == true) {
     let transactionObjArr = JSON.parse(localStorage.getItem("transactionData"))
     // Busco el índice que quiero eliminar
     let transactionIndexInArray = transactionObjArr.findIndex(element => element.transactionID == transactionID)
     transactionObjArr[transactionIndexInArray].Estatus="Aceptado";
     let transactionArrayJSON = JSON.stringify(transactionObjArr);
     localStorage.setItem("transactionData", transactionArrayJSON);
+    }
 
 }
     // Le paso el id que quiero eliminar
