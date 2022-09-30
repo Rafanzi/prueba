@@ -120,18 +120,21 @@ function insertar1(transactionObj1) {
     
 
     deniedButton1.addEventListener("click", (event) => {
+        event.preventDefault();
         let transactionRow1 = event.target.parentNode.parentNode;
         let transactionID1 = transactionRow1.getAttribute("data-transaction-id1");
         location.reload("transactionTable1");
         deniedTransactionObj1(transactionID1);
     })
     aproveButton1.addEventListener("click", (event) => {
+        event.preventDefault();
         let transactionRow1 = event.target.parentNode.parentNode;
         let transactionID1 = transactionRow1.getAttribute("data-transaction-id1");
         location.reload("transactionTable1");
         aproveTransactionObj1(transactionID1);
     })
     deleteButton1.addEventListener("click", (event) => {
+        event.preventDefault();
         let transactionRow1 = event.target.parentNode.parentNode;
         let transactionID1 = transactionRow1.getAttribute("data-transaction-id1");
         location.reload("transactionTable1")
