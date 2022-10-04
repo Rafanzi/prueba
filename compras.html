@@ -34,7 +34,21 @@
             <div class="col s12 m4 l8">
                 <form id="transactionForm2">
         <div class="input-field"><label for="descripcion">Descripcion</label><input  required type="text" class="validate" id="descripcion" name="descripcion"></div>
-        <div class="input-field"><label for="unidad">Unidad</label> <input  required type="text" class="validate" id="unidad" name="unidad"></div>
+        <div class="select-field"><label for="unidad">Unidad</label> 
+            <select required class="browser-default" id="unidad" name="unidad">
+                <option value="KG">KG</option>
+                <option value="Servicio">Servicio</option>
+                <option value="Equipo">Equipo</option>
+                <option value="Pza">Pza</option>
+                <option value="Litro">Litro</option>
+                <option value="Caja">Caja</option>
+                <option value="Galon">Galon</option>
+                <option value="Ton">Ton</option>
+                <option value="Paquete">Paquete</option>
+                <option value="Kit">Kit</option>
+                
+            </select>
+        </div>
         <div class="input-field"><label for="cantidad">Cantidad</label><input required type="number" class="validate" id="cantidad" type="number" name="cantidad"></div>
         <div class="input-field"><label for="existencia">Existencia</label><input required type="number" class="validate" id="existencia" type="number" name="existencia"></div>
         <div class="input-field"><label for="precio">Precio Unitario</label><input required type="number" class="validate" id="precio" type="number" name="precio"></div>
