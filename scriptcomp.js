@@ -110,6 +110,14 @@ function insertar2(transactionObj2) {
     if (transactionObj2.Estatus==="Aceptado"||transactionObj2.Estatus==="Rechazado"){
         deniedButton2.disabled="true";
     }
+    let revision = document.createElement("button");
+    revision.name="revision";
+    revision.type="submit";
+    revision.className = "waves-effect waves-light btn-small";
+    revision.textContent = "Revisar";
+    actionCell2.appendChild(revision);
+
+
     let deleteCell2 = newTransactionTRow2.insertCell(10);
     let deleteButton2 = document.createElement("button");
     deleteButton2.name="action";
@@ -117,6 +125,7 @@ function insertar2(transactionObj2) {
     deleteButton2.className = "waves-effect waves-light btn-small";
     deleteButton2.textContent = "Eliminar";
     deleteCell2.appendChild(deleteButton2);
+    
 
     
 
@@ -141,7 +150,25 @@ function insertar2(transactionObj2) {
         location.reload("transactionTable2");
         deleteTransactionObj2(transactionID2);
     })
+    revision.addEventListener("click", (event) => {
+        event.preventDefault();
+        let transactionRow2 = event.target.parentNode.parentNode;
+        let transactionID2 = transactionRow2.getAttribute("data-transaction-id2");
+        location.reload("transactionTable2");
+        revisado(transactionID2);
+    })
 
+}
+function revisado(transactionID2){
+    let valor1 = prompt("Digite la existencia",0);
+    if(valor1>=0){
+    let transactionObjArr2 = JSON.parse(localStorage.getItem("transactionData2"))
+    // Busco el índice que quiero eliminar
+    let transactionIndexInArray2 = transactionObjArr2.findIndex(element => element.transactionID2 == transactionID2)
+    transactionObjArr2[transactionIndexInArray2].existencia=valor1;
+    let transactionArrayJSON2 = JSON.stringify(transactionObjArr2);
+    localStorage.setItem("transactionData2", transactionArrayJSON2);
+}
 }
 function deniedTransactionObj2(transactionID2){
     if (confirm("¿Desea rechazar la solicitud? Esta acción no se puede deshacer") == true) {
@@ -150,8 +177,8 @@ function deniedTransactionObj2(transactionID2){
     let transactionIndexInArray2 = transactionObjArr2.findIndex(element => element.transactionID2 == transactionID2)
     transactionObjArr2[transactionIndexInArray2].Estatus="Rechazado";
     let transactionArrayJSON2 = JSON.stringify(transactionObjArr2);
-    localStorage.setItem("transactionData2", transactionArrayJSON2);}
-
+    localStorage.setItem("transactionData2", transactionArrayJSON2);
+    }
 }
 function aproveTransactionObj2(transactionID2){
     if (confirm("¿Desea aprobar la solicitud? Esta acción no se puede deshacer") == true) {
@@ -160,21 +187,20 @@ function aproveTransactionObj2(transactionID2){
     let transactionIndexInArray2= transactionObjArr2.findIndex(element => element.transactionID2 == transactionID2)
     transactionObjArr2[transactionIndexInArray2].Estatus="Aceptado";
     let transactionArrayJSON2 = JSON.stringify(transactionObjArr2);
-    localStorage.setItem("transactionData2", transactionArrayJSON2);}
-
+    localStorage.setItem("transactionData2", transactionArrayJSON2);
+    }
 }
 
     // Le paso el id que quiero eliminar
     function deleteTransactionObj2(transactionID2) {
-        if (confirm("¿Desea eliminar la solicitud? Esta acción no se puede deshacer") == true) {
         //Convierto de JSON a objeto
+        if (confirm("¿Desea eliminar la solicitud? Esta acción no se puede deshacer") == true) {
         let transactionObjArr2 = JSON.parse(localStorage.getItem("transactionData2"))
         // Busco el índice que quiero eliminar
         let transactionIndexInArray2 = transactionObjArr2.findIndex(element => element.transactionID2 == transactionID2)
         transactionObjArr2.splice(transactionIndexInArray2, 1)
         let transactionArrayJSON2 = JSON.stringify(transactionObjArr2);
-        localStorage.setItem("transactionData2", transactionArrayJSON2);
-        }
+        localStorage.setItem("transactionData2", transactionArrayJSON2);}
 }
 function saveTransactionObj(transactionObj2) {
     let myTransactionArray2 = JSON.parse(localStorage.getItem("transactionData2")) || [];
